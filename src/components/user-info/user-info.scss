@@ -1,0 +1,42 @@
+.container {
+  padding: 10px;
+
+  .img {
+    margin: 30px 50px 30px 50px;
+  }
+  .tools {
+    margin-bottom: 20px;
+    text-align: left;
+    .user-name {
+      display: inline-block;
+      margin: 0;
+    }
+    .btn {
+      color: black;
+      border-color: black;
+      padding: 5px 9px;
+      .bold {
+        font-weight: bold;
+      }
+    }
+    .settings-icon {
+      margin: 5px;
+    }
+  }
+  .activity {
+    margin-bottom: 20px;
+    .activities {
+      padding: 0 !important;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  }
+  .name {
+    padding: 10px 10px 10px 0;
+    text-align: left;
+    .bold {
+      font-weight: bold;
+    }
+  }
+}
