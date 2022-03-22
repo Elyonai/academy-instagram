@@ -1,22 +1,20 @@
-import logo from './logo.svg';
-import './App.scss';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import Feed from "./Feed/Feed";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <h1>Instagram</h1>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <div className="container">
+          {/*<Header />*/}
+          <Routes>
+            <Route path="/" element={<Feed />} />
+            {/*<Route path="/profile" element={<Profile />} />*/}
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
