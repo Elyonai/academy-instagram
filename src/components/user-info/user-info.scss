@@ -3,24 +3,29 @@
 
   .img {
     margin: 30px 50px 30px 50px;
+    cursor: pointer;
   }
   .tools {
     margin-bottom: 20px;
     text-align: left;
+    font-size: 20px;
     .user-name {
-      display: inline-block;
-      margin: 0;
+      font-weight: 400;
+      margin: 0px;
+      color: rgb(54, 54, 54);
     }
     .btn {
       color: black;
-      border-color: black;
+      border-color: rgb(192, 192, 192);
       padding: 5px 9px;
       .bold {
-        font-weight: bold;
+        font-size: 12px;
+        font-weight: bolder;
       }
     }
     .settings-icon {
-      margin: 5px;
+      margin-top: 5px;
+      cursor: pointer;
     }
   }
   .activity {

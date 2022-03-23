@@ -20,23 +20,31 @@ export default () => {
     follows: 294,
   };
 
+  const editProfile = () => {
+    alert('edit profile clicked');
+  };
+
   return (
     <div className='container'>
-      <Stack direction='row' spacing={4}>
+      <Stack direction='row' spacing={4} justifyContent='center'>
         <Avatar
           className='img'
           alt='User picture'
           src={urlImage}
           sx={{ width: 150, height: 150 }}
         />
-        <Stack spacing={2}>
+        <Stack justifyContent='center' spacing={0}>
           <div className='tools'>
             <Grid container spacing={3}>
               <Grid item xl={4}>
-                <h3 className='user-name'>{userInfo.userName}</h3>
+                <h2 className='user-name'>{userInfo.userName}</h2>
               </Grid>
               <Grid item xl={4}>
-                <Button className='btn' variant='outlined'>
+                <Button
+                  onClick={editProfile}
+                  className='btn'
+                  variant='outlined'
+                >
                   <span className='bold'>Edit profile</span>
                 </Button>
               </Grid>
