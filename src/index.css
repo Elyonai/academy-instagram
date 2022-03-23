@@ -1,11 +1,13 @@
-/* Google Fonts - Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+/* Google Fonts - Quicksand - Kaushan */
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Quicksand:wght@400;500;600;700&display=swap');
 
 /* Variables */
 :root {
   --logo-color: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
 
-  --font: 'Montserrat', sans-serif;
+  --font: 'Quicksand', sans-serif;
+  --font-logo: 'Kaushan Script', cursive;
+
   --font-color-black: rgb(38, 38, 38); 
   --font-color-gray-dark: rgb(84, 84, 84);
   --font-color-gray: rgb(189, 189, 189);
@@ -17,10 +19,12 @@
   --color-black-gradient: rgba(0,0,0,0.6); /*Modal background*/ 
   --color-gray-brackground: rgb(250, 250, 250);
   --color-white: rgb(255, 255, 255);
+  --color-gray-white: rgb(248, 248, 248);
 
-  --shadow: 0px 0px 5px 0px var(--color-gray);
+  --shadow: 0px 0px 5px 0px #ccc;
   --border-color: rgb(219, 219, 219);
   --transition: 0.2s ease;
+  --radius: 5px;
 }
 
 /* Normalization Styles */
@@ -30,12 +34,14 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font);
+  color: var(--font-color-black);
 }
 
 body {
   font-family: var(--font);
   font-size: 14px;
   background: var(--color-gray-brackground);
+  color: var(--font-color-black);
 }
 
 a {text-decoration: none;}
