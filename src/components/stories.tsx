@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Component } from 'react';
 import { render } from 'react-dom';
 import Zuck from 'zuck.js';
-import './App.scss';
+import '../styles/stories.scss';
+
 
 export default class App extends Component {
   storiesElement = null;
@@ -50,20 +52,20 @@ export default class App extends Component {
       ),
     ],
   };
-  constructor(props) {
-    super(props);
-  }
+
+  
+ 
 
   componentDidMount() {
-    let stories = new Zuck(this.storiesElement, {
+    new Zuck(this.storiesElement, {
       skin: 'snapgram', // container class
       avatars: true, // shows user photo instead of last story item preview
       list: false, // displays a timeline instead of carousel
       openEffect: true, // enables effect when opening story - may decrease performance
       cubeEffect: false, // enables the 3d cube effect when sliding story - may decrease performance
       autoFullScreen: false, // enables fullscreen on mobile browsers
-      backButton: true, // adds a back button to close the story viewer
-      backNative: false, // uses window history to enable back button on browsers/android
+      backButton: false, // adds a back button to close the story viewer
+      backNative: true, // uses window history to enable back button on browsers/android
       previousTap: true, // use 1/3 of the screen to navigate to previous item when tap the story
       localStorage: true, // set true to save "seen" position. Element must have a id to save properly.
       reactive: true, // set true if you use frameworks like React to control the timeline (see react.sample.html)
@@ -82,16 +84,17 @@ export default class App extends Component {
         }.bind(this),
       },
       stories: this.state.stories,
+      
     });
   }
 
   render() {
     const timelineItems = [];
 
-    this.state.stories.map((story, storyId) => {
+    this.state.stories.forEach((story, storyId) => {
       const storyItems = [];
 
-      story.items.map((storyItem) => {
+      story.items.forEach((storyItem) => {
         storyItems.push(
           <li
             key={storyItem.id}
@@ -106,7 +109,6 @@ export default class App extends Component {
               data-link={storyItem.link}
               data-linkText={storyItem.linkText}
             >
-              <img src={storyItem.preview} />
             </a>
           </li>
         );
