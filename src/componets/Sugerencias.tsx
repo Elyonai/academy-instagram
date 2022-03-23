@@ -25,7 +25,6 @@ export default function sugeComponent() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={7}>
-
         </Grid>
         <Grid item xs={5}>
           <ImgProfile/>

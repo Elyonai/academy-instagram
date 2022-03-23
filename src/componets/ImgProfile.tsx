@@ -50,7 +50,7 @@ export default function imgProfile() {
             </Grid>
           </Grid>
           <Grid item>
-            <Typography variant="subtitle2" component="div" sx={{ cursor: 'pointer' }}>
+            <Typography variant="subtitle2" component="div" sx={{ cursor: 'pointer', color: '#2196f3' }}>
               Cambiar
             </Typography>
           </Grid>
