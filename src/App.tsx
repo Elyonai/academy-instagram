@@ -1,58 +1,57 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { render } from 'react-dom';
 import Zuck from 'zuck.js';
 import './App.scss';
 
 export default class App extends Component {
+  storiesElement = null;
+  state = {
+    stories: [
+      Zuck.buildTimelineItem(
+        'ramon',
+        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/1.jpg',
+        'Test 1',
+        'https://ramon.codes',
+        1575221470504,
+        [
+          [
+            'test-1',
+            'photo',
+            3,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+          [
+            'test-2',
+            'video',
+            0,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/2.mp4',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/2.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+          [
+            'test-3',
+            'photo',
+            3,
+
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            false,
+            1575221470504,
+          ],
+        ]
+      ),
+    ],
+  };
   constructor(props) {
     super(props);
-    this.storiesElement = null;
-    this.storiesApi = null;
-    this.state = {
-      stories: [
-        Zuck.buildTimelineItem(
-          'ramon',
-          'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/1.jpg',
-          'Test 1',
-          'https://ramon.codes',
-          1575221470504,
-          [
-            [
-              'test-1',
-              'photo',
-              3,
-              'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
-              'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
-              '',
-              false,
-              false,
-              1575221470504,
-            ],
-            [
-              'test-2',
-              'video',
-              0,
-              'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/2.mp4',
-              'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/2.jpg',
-              '',
-              false,
-              false,
-              1575221470504,
-            ],
-            [
-              'test-3',
-              'photo',
-              3,
-              
-              'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
-              'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
-              false,
-              1575221470504,
-            ],
-          ],
-        ),
-      ],
-    };
   }
 
   componentDidMount() {
@@ -69,16 +68,16 @@ export default class App extends Component {
       localStorage: true, // set true to save "seen" position. Element must have a id to save properly.
       reactive: true, // set true if you use frameworks like React to control the timeline (see react.sample.html)
       callbacks: {
-        onDataUpdate: function(currentState, callback) {
+        onDataUpdate: function (currentState, callback) {
           this.setState(
-            state => {
+            (state) => {
               state.stories = currentState;
 
               return state;
             },
             () => {
               callback();
-            },
+            }
           );
         }.bind(this),
       },
@@ -92,7 +91,7 @@ export default class App extends Component {
     this.state.stories.map((story, storyId) => {
       const storyItems = [];
 
-      story.items.map(storyItem => {
+      story.items.map((storyItem) => {
         storyItems.push(
           <li
             key={storyItem.id}
@@ -109,7 +108,7 @@ export default class App extends Component {
             >
               <img src={storyItem.preview} />
             </a>
-          </li>,
+          </li>
         );
       });
 
@@ -122,26 +121,35 @@ export default class App extends Component {
           data-last-updated={story.lastUpdated}
           data-photo={story.photo}
         >
-          <a className="item-link" href={story.link}>
-            <span className="item-preview">
+          <a className='item-link' href={story.link}>
+            <span className='item-preview'>
               <img src={story.photo} />
             </span>
-            <span className="info" itemProp="author" itemScope="" itemType="http://schema.org/Person">
-              <strong className="name" itemProp="name">
+            <span
+              className='info'
+              itemProp='author'
+              itemScope={false}
+              itemType='http://schema.org/Person'
+            >
+              <strong className='name' itemProp='name'>
                 {story.name}
               </strong>
-              <span className="time">{story.lastUpdated}</span>
+              <span className='time'>{story.lastUpdated}</span>
             </span>
           </a>
 
-          <ul className="items">{storyItems}</ul>
-        </div>,
+          <ul className='items'>{storyItems}</ul>
+        </div>
       );
     });
 
     return (
       <div>
-        <div ref={node => (this.storiesElement = node)} id="stories-react" className="storiesWrapper">
+        <div
+          ref={(node) => (this.storiesElement = node)}
+          id='stories-react'
+          className='storiesWrapper'
+        >
           {timelineItems}
         </div>
       </div>
