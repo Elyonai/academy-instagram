@@ -10,9 +10,92 @@ export default class App extends Component {
   state = {
     stories: [
       Zuck.buildTimelineItem(
-        'ramon',
-        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/1.jpg',
+        'test1',
+        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/3.jpg',
+        'Test 3',
+        "https://ramon.codes",
+        1575221470504,
+        [
+          [
+            'test-1',
+            'photo',
+            3,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/6.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/7.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+        ]
+      ),
+
+      Zuck.buildTimelineItem(
+        'test2',
+        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/4.jpg',
+        'Test 2',
+        "https://ramon.codes",
+        1575221470504,
+        [
+          [
+            'test-1',
+            'photo',
+            3,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/8.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+        ]
+      ),
+
+      Zuck.buildTimelineItem(
+        'test3',
+        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/2.jpg',
         'Test 1',
+        "https://ramon.codes",
+        1575221470504,
+        [
+          [
+            'test-1',
+            'photo',
+            3,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/5.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/5.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+          [
+            'test-2',
+            'video',
+            0,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/4.mp4',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/4.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+          [
+            'test-3',
+            'photo',
+            3,
+
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            false,
+            1575221470504,
+          ],
+        ]
+      ),
+
+      Zuck.buildTimelineItem(
+        'Test 4',
+        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/3.jpg',
+        'Test 4',
         'https://ramon.codes',
         1575221470504,
         [
@@ -50,6 +133,48 @@ export default class App extends Component {
           ],
         ]
       ),
+      Zuck.buildTimelineItem(
+        'test 5',
+        'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/users/4.jpg',
+        'Test 5',
+        'https://ramon.codes',
+        1575221470504,
+        [
+          [
+            'test-1',
+            'photo',
+            3,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+          [
+            'test-2',
+            'video',
+            0,
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/2.mp4',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/2.jpg',
+            '',
+            false,
+            false,
+            1575221470504,
+          ],
+          [
+            'test-3',
+            'photo',
+            3,
+
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            'https://raw.githubusercontent.com/ramon82/assets/master/zuck.js/stories/1.jpg',
+            false,
+            1575221470504,
+          ],
+        ]
+      ),
+
     ],
   };
 
@@ -63,11 +188,11 @@ export default class App extends Component {
       list: false, // displays a timeline instead of carousel
       openEffect: true, // enables effect when opening story - may decrease performance
       cubeEffect: false, // enables the 3d cube effect when sliding story - may decrease performance
-      autoFullScreen: false, // enables fullscreen on mobile browsers
+      autoFullScreen: true, // enables fullscreen on mobile browsers
       backButton: false, // adds a back button to close the story viewer
-      backNative: true, // uses window history to enable back button on browsers/android
+      backNative: false, // uses window history to enable back button on browsers/android
       previousTap: true, // use 1/3 of the screen to navigate to previous item when tap the story
-      localStorage: true, // set true to save "seen" position. Element must have a id to save properly.
+      localStorage: false, // set true to save "seen" position. Element must have a id to save properly.
       reactive: true, // set true if you use frameworks like React to control the timeline (see react.sample.html)
       callbacks: {
         onDataUpdate: function (currentState, callback) {
