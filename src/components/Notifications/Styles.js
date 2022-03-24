@@ -15,11 +15,11 @@ export const NotificationsContainer = styled.ul`
     overflow: auto;
     position: absolute;
     top: 40px;
+    transition: var(--transition);
     right: -10px;
     transform: translateY(-5px);
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition);
 
     h3 {
         font-size: 0.8125rem;
@@ -31,6 +31,27 @@ export const NotificationsContainer = styled.ul`
         opacity: 1;
         visibility: visible;
     `}
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--color-gray-white);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-gray);
+        border-radius: 80px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-blue);
+    }
 `;
 
 export const Notification = styled(Link)`
@@ -43,10 +64,7 @@ export const Notification = styled(Link)`
 
 export const NotificationBody = styled.div`
     width: 300px;
-
-    p{
-        word-wrap: break-word;
-    }
+    p{ word-wrap: break-word;}
 `;
 
 export const Group = styled.div`

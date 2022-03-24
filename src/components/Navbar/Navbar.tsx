@@ -15,6 +15,7 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import ChangeCircleOutlinedIcon from '@mui/icons-material/ChangeCircleOutlined';
+import Modal from '../Modal/Modal';
 
 // Logo
 import LogoInstagram from '../..//instagram-logo.jpg';
@@ -23,6 +24,7 @@ const Navbar = function() {
 
     const [activatedOptions, setActivatedOptions] = useState<boolean>(false);
     const [activatedNotifications, setActivatedNotifications] = useState<boolean>(false);
+    const [activatedModal, setActivatedModal] = useState<boolean>(false);
 
     const handleActivateOptions = (): void => {
         setActivatedOptions(!activatedOptions);
@@ -35,13 +37,14 @@ const Navbar = function() {
 
     return(
         <Header>
+            <Modal activated={activatedModal} setActivated={setActivatedModal}/>
             <Nav>
                 <Logo to="/">
                     <img src={LogoInstagram} alt="Instagram" />
                 </Logo>
 
                 <InputSearch/>
-
+                
                 <Actions>
                     {/* Action Home */}
                     <Action>
@@ -57,7 +60,7 @@ const Navbar = function() {
                     </Action>
                     {/* Action add new post */}
                     <Action>
-                        <button>
+                        <button onClick={():void => setActivatedModal(true)}>
                             <AddBoxOutlinedIcon/>
                         </button>
                     </Action>
