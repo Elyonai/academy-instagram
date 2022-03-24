@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Component } from 'react';
-import { render } from 'react-dom';
 import Zuck from 'zuck.js';
 import '../styles/stories.scss';
 
 
-export default class App extends Component {
+export default class Stories extends Component {
   storiesElement = null;
   state = {
     stories: [
@@ -284,4 +283,3 @@ export default class App extends Component {
   }
 }
 
-render(<App />, document.getElementById('root'));
