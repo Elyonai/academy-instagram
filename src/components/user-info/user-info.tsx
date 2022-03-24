@@ -1,6 +1,6 @@
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import { UserInfo } from '../../types/user-info';
+import UserInfo from '../../types/user-info';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
