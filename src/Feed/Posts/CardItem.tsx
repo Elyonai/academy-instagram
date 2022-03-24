@@ -14,6 +14,7 @@ import {
   ChatBubbleOutline,
   FavoriteBorderOutlined,
   MoreHoriz,
+  RecommendTwoTone,
   Send,
   SentimentSatisfiedAlt,
 } from "@mui/icons-material";
@@ -26,6 +27,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { Posts } from "../../data/posts";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -42,21 +44,23 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function CardItem() {
+export default function CardItem(props: Posts) {
   const [expanded, setExpanded] = React.useState<boolean>(false);
+  const { profile, profileImg, imgUrl, location, caption, likes, comments } =
+    props;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card sx={{ maxWidth: 550, minHeight: 700 }} elevation={8}>
+    <Card sx={{ maxWidth: 580, minHeight: 700 }} elevation={8}>
       <CardHeader
         avatar={
           <Avatar
             sx={{ bgcolor: red[500] }}
             aria-label="recipe"
-            src="https://res.cloudinary.com/joeutd/image/upload/v1648059998/insta-clone-academy/profile/profile2_ejxyor.jpg"
+            src={profileImg}
           >
             R
           </Avatar>
@@ -66,13 +70,13 @@ export default function CardItem() {
             <MoreHoriz />
           </IconButton>
         }
-        title="Mike Ramirez"
-        subheader="Huntington Beach, California"
+        title={profile}
+        subheader={location}
       />
       <CardMedia
         component="img"
         height="70%"
-        image="https://res.cloudinary.com/joeutd/image/upload/v1647980740/insta-clone-academy/nature-2-tiny_zopwxj.jpg"
+        image={imgUrl}
         alt="Paella dish"
       />
       {/*<CardContent>
@@ -113,20 +117,20 @@ export default function CardItem() {
               <Grid item>
                 <AvatarGroup max={2}>
                   <Avatar
-                    alt="Remy Sharp"
-                    src="https://res.cloudinary.com/joeutd/image/upload/v1648059999/insta-clone-academy/profile/profile1_kamusu.jpg"
+                    alt={comments[0].profile}
+                    src={comments[0].profileImg}
                     sx={{ height: 21, width: 21 }}
                   />
                   <Avatar
-                    alt="Travis Howard"
-                    src="https://res.cloudinary.com/joeutd/image/upload/v1648059998/insta-clone-academy/profile/profile5_lixplk.jpg"
+                    alt={comments[1].profile}
+                    src={comments[1].profileImg}
                     sx={{ height: 21, width: 21 }}
                   />
                 </AvatarGroup>
               </Grid>
               <Grid item>
                 <Typography variant="subtitle2" sx={{ ml: 1 }}>
-                  1,234,988 Likes
+                  {likes} Likes
                 </Typography>
               </Grid>
             </Grid>
@@ -137,12 +141,12 @@ export default function CardItem() {
                     variant="subtitle2"
                     sx={{ color: "#161616", fontWeight: "bold" }}
                   >
-                    Mike_Ramirez{" "}
+                    {profile}
                   </Typography>
                 </Grid>
                 <Grid item>
                   <Typography variant="subtitle2" sx={{ fontSize: ".8rem" }}>
-                    It was a great day
+                    {caption}
                   </Typography>
                 </Grid>
               </Grid>
@@ -174,12 +178,12 @@ export default function CardItem() {
                     variant="subtitle2"
                     sx={{ color: "#161616", fontWeight: "bold" }}
                   >
-                    David788{" "}
+                    {comments[0].profile}
                   </Typography>
                 </Grid>
                 <Grid item>
                   <Typography variant="subtitle2" sx={{ fontSize: ".8rem" }}>
-                    Great view
+                    {comments[0].text}
                   </Typography>
                 </Grid>
               </Grid>
@@ -191,12 +195,12 @@ export default function CardItem() {
                     variant="subtitle2"
                     sx={{ color: "#161616", fontWeight: "bold" }}
                   >
-                    marina98{" "}
+                    {comments[1].profile}
                   </Typography>
                 </Grid>
                 <Grid item>
                   <Typography variant="subtitle2" sx={{ fontSize: ".8rem" }}>
-                    What a nice picture
+                    {comments[1].text}
                   </Typography>
                 </Grid>
               </Grid>
