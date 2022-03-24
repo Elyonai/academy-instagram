@@ -14,7 +14,7 @@ const Img = styled('img')({
   maxHeight: '100%',
 });
 
-export default function imgProfile() {
+export default function ImgProfile() {
   return (
     <Paper
       sx={{

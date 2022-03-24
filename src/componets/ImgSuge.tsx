@@ -1,21 +1,27 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Avatar from '@mui/material/Avatar';
+import Popover from '@mui/material/Popover';
+import ProfileSuge from './ProfileSuge';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
+export default function ImgSuge() {
 
-export default function imgSuge() {
+    const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+    const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handlePopoverClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+
     return (
         <Box sx={{ width: '100%' }}>
             <Paper
@@ -54,9 +60,37 @@ export default function imgSuge() {
                     <Grid item xs={12} sm container>
                         <Grid item xs container direction="column" spacing={0}>
                             <Grid item xs={2}>
-                                <Typography gutterBottom variant="subtitle2" component="div">
+                                <Typography
+                                    gutterBottom
+                                    variant="subtitle2"
+                                    component="div"
+                                    aria-owns={open ? 'mouse-over-popover' : undefined}
+                                    aria-haspopup="true"
+                                    onMouseEnter={handlePopoverOpen}
+                                    onMouseLeave={handlePopoverClose}
+                                >
                                     placeholderprofile
                                 </Typography>
+                                <Popover
+                                    id="mouse-over-popover"
+                                    sx={{
+                                        pointerEvents: 'none',
+                                    }}
+                                    open={open}
+                                    anchorEl={anchorEl}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'left',
+                                    }}
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'left',
+                                    }}
+                                    onClose={handlePopoverClose}
+                                    disableRestoreFocus
+                                >
+                                    <ProfileSuge/>
+                                </Popover>
                                 <Typography variant="body2" color="text.secondary">
                                     sugerencia para ti
                                 </Typography>
