@@ -2,6 +2,7 @@ import React from "react";
 import Posts from "./Posts/Posts";
 import { Grid, Paper } from "@mui/material";
 import Stories from "../components/stories";
+import Sugerencias from "../componets/Sugerencias"
 
 const Feed = () => {
   return (
@@ -10,11 +11,13 @@ const Feed = () => {
       <Paper
         sx={{ backgroundColor: "#FAFAFA", height: "100%", minHeight: "100vh" }}
       >
-        <Grid container justifyContent="flex-end">
-          <Grid item xs={8}>
+        <Grid container justifyContent="center" spacing={1}>
+          <Grid item>
             <Posts />
           </Grid>
-          {/* Aqui van las sugerencias*/}
+          <Grid item>
+          <Sugerencias />
+          </Grid>
         </Grid>
       </Paper>
     </>
