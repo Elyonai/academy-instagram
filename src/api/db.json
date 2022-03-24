@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "fulano125",
+      "description": "Fulano Mengano",
+      "picture": "https://i.imgur.com/pMdy4wq.jpg"
+    },
+
+    {
+      "id": 2,
+      "name": "andreaR125",
+      "description": "Andrea Romero",
+      "picture": "https://i.imgur.com/2Q3TIBl.jpg"
+    },
+    {
+      "id": 3,
+      "name": "pame18",
+      "description": "Pamela Robles",
+      "picture": "https://i.imgur.com/RiX2Oe9.jpg"
+    },
+    {
+      "id": 4,
+      "name": "karen_pach122",
+      "description": "Karen Pacheco",
+      "picture": "https://i.imgur.com/cMWqOYz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "artur45",
+      "description": "Arturo Herrera",
+      "picture": "https://i.imgur.com/jJloOMP.jpg"
+    },
+    {
+      "id": 6,
+      "name": "robert85",
+      "description": "Robert Herrera",
+      "picture": "https://i.imgur.com/skiUbTW.jpg"
+    }
+  ]
+}
