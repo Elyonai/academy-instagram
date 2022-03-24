@@ -5,7 +5,6 @@ import { Grid, Paper } from "@mui/material";
 const Feed = () => {
   return (
     <>
-      {/*Aqui va el HEADER*/}
       <Paper
         sx={{ backgroundColor: "#FAFAFA", height: "100%", minHeight: "100vh" }}
       >
