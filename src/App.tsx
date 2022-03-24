@@ -1,12 +1,9 @@
-import logo from './logo.svg';
-import './App.scss';
-import Sugerencias from './componets/Sugerencias';
-
+import Router from './components/Router';
 
 function App() {
   return (
     <div className='App'>
-      <Sugerencias/>
+      <Router/>
     </div>
   );
 }

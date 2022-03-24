@@ -20,19 +20,15 @@ export default function SugeComponent() {
   return (
     <React.Fragment>
     <CssBaseline />
-    <Container maxWidth="lg">
-      <br/>
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ minWidth: 400 }}>
       <Grid container spacing={2}>
-        <Grid item xs={7}>
-        </Grid>
-        <Grid item xs={5}>
+        <Grid item >
           <ImgProfile/>
           <ImgSuge/>
         </Grid>
       </Grid>
     </Box>
-    </Container>
+    
   </React.Fragment>
   );
 }
