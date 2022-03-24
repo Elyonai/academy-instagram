@@ -22,18 +22,22 @@ const InputSearch = function() {
 
     const handleSearch: InputElement = async (e) => {
 
-        try {
+        if(e.target.value !== '') {
+            try {
 
-            const request = await fetch('http://localhost:5000/users');
-            const response: UserResult[] = await request.json();
-
-            const results = response.filter((result: UserResult) => result.name.startsWith(e.target.value) === true);
-
-            setResultsSearch(results);
-            
-
-        } catch(error) {
-            console.log(error);
+                const request = await fetch('http://localhost:5000/users');
+                const response: UserResult[] = await request.json();
+    
+                const results = response.filter((result: UserResult) => result.name.startsWith(e.target.value) === true);
+    
+                setResultsSearch(results);
+                
+    
+            } catch(error) {
+                console.log(error);
+            }
+        } else {
+            setResultsSearch([]);
         }
         
     }
