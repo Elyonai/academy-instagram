@@ -21,7 +21,29 @@ const Notifications = function(props: PropsNotifications) {
                 <Button>Follow</Button>
             </Group>
         </Notification>
-    </NotificationsContainer>
+        <Notification to="/">
+            <Group>
+                <NotificationImage src='https://i.imgur.com/pMdy4wq.jpg' alt="Irving"/> 
+                <NotificationBody>
+                    <p>
+                        <strong>fulano3215</strong> like your photo <span>2 weeks</span>
+                    </p>
+                </NotificationBody>
+                <Button>Follow</Button>
+            </Group>
+        </Notification>
+        <Notification to="/">
+            <Group>
+                <NotificationImage src='https://i.imgur.com/pMdy4wq.jpg' alt="Irving"/> 
+                <NotificationBody>
+                    <p>
+                        <strong>fulano3215</strong> like your photo <span>2 weeks</span>
+                    </p>
+                </NotificationBody>
+                <Button>Follow</Button>
+            </Group>
+        </Notification>
+        </NotificationsContainer>
 
     );
 }

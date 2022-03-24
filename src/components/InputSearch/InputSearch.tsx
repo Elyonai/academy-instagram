@@ -8,32 +8,62 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const InputSearch = function() {
 
-    const [activatedResults, setActivatedResults] = useState<boolean>(false);
+    type InputElement = React.ChangeEventHandler<HTMLInputElement>;
 
-    const handleSearch = (): void => {
+    interface UserResult {
+        id: number,
+        name: string,
+        description: string,
+        picture: string
+    }
+
+    const [activatedResults, setActivatedResults] = useState<boolean>(false);
+    const [resultsSearch, setResultsSearch] = useState<UserResult[]>([]);
+
+    const handleSearch: InputElement = async (e) => {
+
+        try {
+
+            const request = await fetch('http://localhost:5000/users');
+            const response: UserResult[] = await request.json();
+
+            const results = response.filter((result: UserResult) => result.name.startsWith(e.target.value) === true);
+
+            setResultsSearch(results);
+            
+
+        } catch(error) {
+            console.log(error);
+        }
         
     }
 
     return(
         <ContainerInput activated={activatedResults.toString()}>
-            <Input name="search" placeholder="Search" autoComplete="off" onFocus={() => setActivatedResults(true)}  onBlur={() => setActivatedResults(false)}/>
+            <Input name="search" placeholder="Search" autoComplete="off" onFocus={() => setActivatedResults(true)} onChange={handleSearch}/>
             <SearchIcon className="icon-search"/>
             <Results activated={activatedResults.toString()}>
-                <Result>
-                    <Group>
-                        <ResultImage src='https://i.imgur.com/pMdy4wq.jpg' alt="Irving" />
-                        <ResultBody>
-                            <strong>fulano3215</strong>
-                            <span>Fulano Mengano</span>
-                        </ResultBody>
-                    <ButtonDelete>
-                        <CloseOutlinedIcon/>
-                    </ButtonDelete>
-                    </Group>
-                </Result>
+                {resultsSearch && resultsSearch.length > 0 
+                    ?   resultsSearch.map((result: UserResult) => (
+                        <Result key={result.id} to={`/profile/${result.id}`} data-id>
+                            <Group>
+                                <ResultImage src={result.picture} alt={result.name} />
+                                <ResultBody>
+                                    <strong>{result.name}</strong>
+                                    <span>{result.description}</span>
+                                </ResultBody>
+                            <ButtonDelete>
+                                <CloseOutlinedIcon/>
+                            </ButtonDelete>
+                            </Group>
+                        </Result>
+                    ))
+                    
+                    : <h4>No results found</h4>
+                }
             </Results>
             <button>
-                <HighlightOffIcon className="icon-close"/>
+                <HighlightOffIcon className="icon-close" onClick={() => setActivatedResults(false)}/>
             </button>
         </ContainerInput>
 

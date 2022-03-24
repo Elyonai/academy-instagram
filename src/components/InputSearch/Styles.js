@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components';
+import {Link} from 'react-router-dom';
 
 // Input
 export const ContainerInput = styled.div`
@@ -100,12 +101,26 @@ export const Results = styled.ul`
 
 `;
 
-export const Result = styled.li`
+export const Result = styled(Link)`
+    display: block;
     width: 100%;
     height: 60px;
     padding: 8px 16px;
     background: var(--color-white);
     position: relative;
+    transition: var(--transition);
+    animation: show 0.3s ease;
+    cursor: pointer;
+    
+    @keyframes show {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
 `;
 
 export const Group = styled.div`
@@ -117,7 +132,7 @@ export const Group = styled.div`
 export const ResultBody = styled.div`
     width: 300px;
 
-    strong, p {font-size: 0.875rem;}
+    strong, p {font-size: 0.8125rem;}
 
     strong {
         display: block;
@@ -128,8 +143,8 @@ export const ResultBody = styled.div`
 `;
 
 export const ResultImage = styled.img`
-    width: 54px;
-    height: 54px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
 `;
 
