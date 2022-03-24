@@ -7,22 +7,21 @@ import Grid from '@mui/material/Grid';
 import './user-info.scss';
 
 //UserInfo component
-export default () => {
-  const urlImage =
-    'https://img2.freepng.es/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-5ba3c66df14d32.3051789815374598219884.jpg';
-
-  const userInfo: UserInfo = {
-    name: 'Elyonai',
-    lastName: 'Hernandez',
-    userName: 'elyolml',
-    publications: 231,
-    followers: 134,
-    follows: 294,
-  };
+export default (props: UserInfo) => {
+  const {
+    name,
+    lastName,
+    userName,
+    publications,
+    followers,
+    follows,
+    profileImg,
+  } = props;
 
   const editProfile = () => {
     alert('edit profile clicked');
   };
+  console.log(props);
 
   return (
     <div className='container'>
@@ -30,14 +29,14 @@ export default () => {
         <Avatar
           className='img'
           alt='User picture'
-          src={urlImage}
+          src={profileImg}
           sx={{ width: 150, height: 150 }}
         />
         <Stack justifyContent='center' spacing={0}>
           <div className='tools'>
             <Grid container spacing={3}>
               <Grid item xl={4}>
-                <h2 className='user-name'>{userInfo.userName}</h2>
+                <h2 className='user-name'>{userName}</h2>
               </Grid>
               <Grid item xl={4}>
                 <Button
@@ -56,20 +55,20 @@ export default () => {
           <div className='activity'>
             <Grid container justifyContent='center' spacing={4}>
               <Grid item>
-                <span className='bold'>{userInfo.publications} </span>
+                <span className='bold'>{publications} </span>
                 publications
               </Grid>
               <Grid item>
-                <span className='bold'>{userInfo.followers}</span> followers
+                <span className='bold'>{followers}</span> followers
               </Grid>
               <Grid item>
-                <span className='bold'>{userInfo.follows}</span> follows
+                <span className='bold'>{follows}</span> follows
               </Grid>
             </Grid>
           </div>
           <div className='name'>
             <label className='bold'>
-              {userInfo.name} {userInfo.lastName}
+              {name} {lastName}
             </label>
           </div>
         </Stack>

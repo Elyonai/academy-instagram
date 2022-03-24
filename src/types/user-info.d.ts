@@ -5,4 +5,5 @@ export interface UserInfo {
   publications: number;
   followers: number;
   follows: number;
+  profileImg: string;
 }
