@@ -28,11 +28,10 @@ export default function ImgSuge() {
                 sx={{
                     p: 2,
                     margin: 'auto',
-                    maxWidth: 380,
-                    flexGrow: 1,
+                    maxWidth: 300,
                     boxShadow: 0,
                     backgroundColor: (theme) =>
-                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                        theme.palette.mode === 'dark' ? '#1A2027' : '#FAFAFA',
                 }}
             >
                 <Grid container spacing={2}>
@@ -48,7 +47,7 @@ export default function ImgSuge() {
                     </Grid>
                 </Grid>
                 <br />
-                <Grid container spacing={-10}>
+                <Grid container>
                     <Grid item>
                         <ButtonBase sx={{ width: 42, height: 42 }}>
                             <Avatar alt="Remy Sharp"
@@ -110,14 +109,13 @@ export default function ImgSuge() {
                 sx={{
                     p: 2,
                     margin: 'auto',
-                    maxWidth: 380,
-                    flexGrow: 1,
+                    maxWidth: 300,
                     boxShadow: 0,
                     backgroundColor: (theme) =>
-                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                        theme.palette.mode === 'dark' ? '#1A2027' : '#FAFAFA',
                 }}
             >
-                <Grid container spacing={-10}>
+                <Grid container>
                     <Grid item>
                         <ButtonBase sx={{ width: 42, height: 42 }}>
                             <Avatar alt="Remy Sharp"
@@ -151,14 +149,13 @@ export default function ImgSuge() {
                 sx={{
                     p: 2,
                     margin: 'auto',
-                    maxWidth: 380,
-                    flexGrow: 1,
+                    maxWidth: 300,
                     boxShadow: 0,
                     backgroundColor: (theme) =>
-                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                        theme.palette.mode === 'dark' ? '#1A2027' : '#FAFAFA',
                 }}
             >
-                <Grid container spacing={-10}>
+                <Grid container>
                     <Grid item>
                         <ButtonBase sx={{ width: 42, height: 42 }}>
                             <Avatar alt="Remy Sharp"

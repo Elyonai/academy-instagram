@@ -20,14 +20,13 @@ export default function ImgProfile() {
       sx={{
         p: 2,
         margin: 'auto',
-        maxWidth: 400,
-        flexGrow: 1,
+        maxWidth: 300,
         boxShadow: 0,
         backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+          theme.palette.mode === 'dark' ? '#1A2027' : '#FAFAFA',
       }}
     >
-      <Grid container spacing={-10}>
+      <Grid container spacing={0}>
         <Grid item>
           <ButtonBase sx={{ width: 56, height: 56 }}>
             <Avatar alt="Remy Sharp"
@@ -36,11 +35,11 @@ export default function ImgProfile() {
             />
           </ButtonBase>
         </Grid>
-        <Grid item xs={12} sm container>
+        <Grid item xs={2} sm container>
           <Grid item xs container direction="column" spacing={0}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle2" component="div">
-                juanitocamelas
+                juanitoloco
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Juan Pablo RM
