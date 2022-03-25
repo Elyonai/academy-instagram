@@ -1,0 +1,47 @@
+.container {
+  padding: 10px;
+
+  .img {
+    margin: 30px 50px 30px 50px;
+    cursor: pointer;
+  }
+  .tools {
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 20px;
+    .user-name {
+      font-weight: 400;
+      margin: 0px;
+      color: rgb(54, 54, 54);
+    }
+    .btn {
+      color: black;
+      border-color: rgb(192, 192, 192);
+      padding: 5px 9px;
+      .bold {
+        font-size: 12px;
+        font-weight: bolder;
+      }
+    }
+    .settings-icon {
+      margin-top: 5px;
+      cursor: pointer;
+    }
+  }
+  .activity {
+    margin-bottom: 20px;
+    .activities {
+      padding: 0 !important;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  }
+  .name {
+    padding: 10px 10px 10px 0;
+    text-align: left;
+    .bold {
+      font-weight: bold;
+    }
+  }
+}
