@@ -19,17 +19,13 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function SugeComponent() {
   return (
     <React.Fragment>
-    <CssBaseline />
-    <Box sx={{ minWidth: 400 }}>
-      <Grid container spacing={2}>
-        <Grid item >
-          <ImgProfile/>
-          <ImgSuge/>
-        </Grid>
-      </Grid>
-    </Box>
-    
-  </React.Fragment>
+      <CssBaseline />
+      <Box>
+        <ImgProfile />
+        <ImgSuge />
+      </Box>
+
+    </React.Fragment>
   );
 }
 

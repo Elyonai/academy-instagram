@@ -28,7 +28,7 @@ export default function ImgSuge() {
                 sx={{
                     p: 2,
                     margin: 'auto',
-                    maxWidth: 380,
+                    maxWidth: 280,
                     flexGrow: 1,
                     boxShadow: 0,
                     backgroundColor: (theme) =>
@@ -48,7 +48,7 @@ export default function ImgSuge() {
                     </Grid>
                 </Grid>
                 <br />
-                <Grid container spacing={-10}>
+                <Grid container>
                     <Grid item>
                         <ButtonBase sx={{ width: 42, height: 42 }}>
                             <Avatar alt="Remy Sharp"
@@ -110,14 +110,14 @@ export default function ImgSuge() {
                 sx={{
                     p: 2,
                     margin: 'auto',
-                    maxWidth: 380,
+                    maxWidth: 280,
                     flexGrow: 1,
                     boxShadow: 0,
                     backgroundColor: (theme) =>
                         theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                 }}
             >
-                <Grid container spacing={-10}>
+                <Grid container>
                     <Grid item>
                         <ButtonBase sx={{ width: 42, height: 42 }}>
                             <Avatar alt="Remy Sharp"
@@ -151,14 +151,14 @@ export default function ImgSuge() {
                 sx={{
                     p: 2,
                     margin: 'auto',
-                    maxWidth: 380,
+                    maxWidth: 280,
                     flexGrow: 1,
                     boxShadow: 0,
                     backgroundColor: (theme) =>
                         theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                 }}
             >
-                <Grid container spacing={-10}>
+                <Grid container>
                     <Grid item>
                         <ButtonBase sx={{ width: 42, height: 42 }}>
                             <Avatar alt="Remy Sharp"

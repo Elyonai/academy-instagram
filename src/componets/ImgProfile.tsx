@@ -20,14 +20,14 @@ export default function ImgProfile() {
       sx={{
         p: 2,
         margin: 'auto',
-        maxWidth: 400,
+        maxWidth: 300,
         flexGrow: 1,
         boxShadow: 0,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
       }}
     >
-      <Grid container spacing={-10}>
+      <Grid container>
         <Grid item>
           <ButtonBase sx={{ width: 56, height: 56 }}>
             <Avatar alt="Remy Sharp"
