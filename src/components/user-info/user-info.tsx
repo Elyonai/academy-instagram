@@ -40,7 +40,7 @@ export default (props: UserInfo) => {
               </Grid>
               <Grid item xl={4}>
                 <Button
-                  onClick={editProfile}
+                  onClick={() => editProfile()}
                   className='btn'
                   variant='outlined'
                 >
