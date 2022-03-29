@@ -19,7 +19,7 @@ export default (props: UserInfo) => {
   } = props;
 
   const editProfile = () => {
-    alert('edit profile clicked');
+    console.log('edit profile clicked');
   };
   console.log(props);
 
