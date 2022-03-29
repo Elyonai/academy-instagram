@@ -1,0 +1,11 @@
+.MuiCardHeader-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.MuiIconButton-root {
+  color: #8e8e8e;
+}
+.MuiAvatar-root {
+  height: 24px;
+  width: 24px;
+}

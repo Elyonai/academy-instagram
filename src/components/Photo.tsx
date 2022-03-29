@@ -5,7 +5,6 @@ import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -14,19 +13,54 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Publication from "../types/publications";
+import Publications from "./Publications";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
 
 export function Photo(props: any) {
+  const urlImage1 =
+    "https://picsum.photos/1000";
+  const urlImage2 =
+    "https://images.pexels.com/photos/3155588/pexels-photo-3155588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  const urlImage3 =
+    "https://images.pexels.com/photos/4348798/pexels-photo-4348798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  const urlImage4 =
+    "https://images.pexels.com/photos/1121796/pexels-photo-1121796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  const urlImage5 =
+    "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  const urlImage6 =
+    "https://images.pexels.com/photos/1898555/pexels-photo-1898555.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+
+  const Publication: Publication = {
+    userName: "Diana Ayala",
+    date: "March 28, 2022",
+    descriptionPhoto:
+      "Nice day",
+    comment1: "Where it is?",
+    comment2: "I love it!",
+    comment3: "It's an amazing photo!",
+    comment4: "See my dm",
+    comment5: "wow!",
+    likes: 231,
+    comments: 134,
+    share: 294,
+    img1: urlImage1,
+    img2: urlImage2,
+    img3: urlImage3,
+    img4: urlImage4,
+    img5: urlImage5,
+    img6: urlImage6,
+  };
+
   return (
     <Modal
       {...props}
@@ -41,7 +75,7 @@ export function Photo(props: any) {
               <CardMedia
                 component="img"
                 height="600"
-                image="https://images.pexels.com/photos/2538225/pexels-photo-2538225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                image={Publication.img1}
                 alt="Nature"
               />
             </Card>
@@ -56,18 +90,12 @@ export function Photo(props: any) {
                         D
                       </Avatar>
                     }
-                    action={
-                      <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                      </IconButton>
-                    }
-                    title="Diana Ayala"
-                    subheader="March 22, 2022"
+                    title={Publication.userName}
+                    subheader={Publication.date}
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      It was the summer of love..a delicate daydream, and for a
-                      couple of months It felt like we were 18, yeah
+                      {Publication.descriptionPhoto}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -78,41 +106,41 @@ export function Photo(props: any) {
                 <Avatar
                   alt="Danna"
                   sx={{ maxWidth: 20, maxHeight: 20 }}
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={Publication.img2}
                 />
-                Where it is?
+                {Publication.comment1}
               </Card>
               <Card sx={{ border: 0, boxShadow: 0, marginBottom: 2 }}>
                 <Avatar
                   alt="Sophia"
                   sx={{ maxWidth: 20, maxHeight: 20 }}
-                  src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={Publication.img3}
                 />
-                That's my favorite beach
+                {Publication.comment2}
               </Card>
               <Card sx={{ border: 0, boxShadow: 0, marginBottom: 2 }}>
                 <Avatar
                   alt="John"
                   sx={{ maxWidth: 20, maxHeight: 20 }}
-                  src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={Publication.img4}
                 />
-                But you prefer the forest, right?
+                {Publication.comment3}
               </Card>
               <Card sx={{ border: 0, boxShadow: 0, marginBottom: 2 }}>
                 <Avatar
                   alt="Alex"
                   sx={{ maxWidth: 20, maxHeight: 20 }}
-                  src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={Publication.img5}
                 />
-                I need some vacations!!!
+                {Publication.comment4}
               </Card>
               <Card sx={{ border: 0, boxShadow: 0, marginBottom: 2 }}>
                 <Avatar
                   alt="Dani"
                   sx={{ maxWidth: 20, maxHeight: 20 }}
-                  src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  src={Publication.img6}
                 />
-                I would like to be there
+                {Publication.comment5}
               </Card>
             </Modal.Body>
             <Modal.Footer>
@@ -143,8 +171,13 @@ export function Photography() {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Click
+
+      <Button
+        onClick={() => setModalShow(true)}
+        variant="contained"
+        color="secondary"
+      >
+        <img src="https://picsum.photos/1000" style={{ width: '150px', height: '150px' }}/>
       </Button>
 
       <Photo show={modalShow} onHide={() => setModalShow(false)} />

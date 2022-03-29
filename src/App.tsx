@@ -1,17 +1,11 @@
-import Publications from './components/Publications';
-import Navigation from './components/Navigation';
-import { Photo, Photography } from './components/Photo';
+import Router from './components/Router';
 
 function App() {
+  return (
+    <div className='App'>
+      <Router />
+    </div>
+  );
+}
 
-    return (
-      <div>
-        <Navigation />
-        <Publications />
-        <Photography />
-        <Photo />
-      </div>
-    );
-  }
-
-  export default App;
+export default App;
