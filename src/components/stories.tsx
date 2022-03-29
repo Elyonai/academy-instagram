@@ -233,7 +233,6 @@ export default class Stories extends Component {
               className='info'
               itemProp='author'
               itemScope={false}
-              itemType='http://schema.org/Person'
             >
               <strong className='name' itemProp='name'>
                 {story.name}
