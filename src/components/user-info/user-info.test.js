@@ -17,7 +17,7 @@ test('render the button to edit profile', () => {
   expect(btnEl).toBeInTheDocument();
 });
 
-test('button alert event', () => {
+test('button edit profile console log', () => {
   const btnEl = screen.getByRole('button', { name: /edit profile/i });
 
   expect(fireEvent.click(btnEl));
