@@ -46,6 +46,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function CardItem(props: Posts) {
   const [expanded, setExpanded] = React.useState<boolean>(false);
+  const [newComment, setNewComment] = React.useState("");
   const { profile, profileImg, imgUrl, location, caption, likes, comments } =
     props;
 
@@ -53,13 +54,21 @@ export default function CardItem(props: Posts) {
     setExpanded(!expanded);
   };
 
+  const addComment = () => {
+    console.log(newComment);
+    setNewComment("");
+  };
+
   return (
     <Card sx={{ maxWidth: 580, minHeight: 700 }} elevation={8}>
       <CardHeader
+        // data-testid="header-profile"
         avatar={
           <Avatar
+            id="profile-img"
             sx={{ bgcolor: red[500] }}
-            aria-label="recipe"
+            aria-label="profile"
+            alt="profile-avatar"
             src={profileImg}
           >
             R
@@ -112,10 +121,23 @@ export default function CardItem(props: Posts) {
               </ExpandMore>
             </Grid>
           </Grid>
-          <Grid item sx={{ ml: ".70em", mt: ".6em" }}>
-            <Grid container alignItems="center">
+          <Grid
+            item
+            sx={{ ml: ".70em", mt: ".6em" }}
+            justifyContent="flex-start"
+          >
+            <Grid container alignItems="flex-start">
               <Grid item>
                 <AvatarGroup max={2}>
+                  {comments.map((comment, index) => (
+                    <Avatar
+                      key={index}
+                      alt={comment.profile}
+                      src={comment.profileImg}
+                      sx={{ height: 21, width: 21 }}
+                    />
+                  ))}
+                  {/*
                   <Avatar
                     alt={comments[0].profile}
                     src={comments[0].profileImg}
@@ -126,6 +148,7 @@ export default function CardItem(props: Posts) {
                     src={comments[1].profileImg}
                     sx={{ height: 21, width: 21 }}
                   />
+*/}
                 </AvatarGroup>
               </Grid>
               <Grid item>
@@ -151,7 +174,7 @@ export default function CardItem(props: Posts) {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item container>
               <Button
                 disableElevation={true}
                 disableRipple={true}
@@ -159,7 +182,7 @@ export default function CardItem(props: Posts) {
                 size="small"
                 variant="text"
                 sx={{
-                  ml: -0.67,
+                  // ml: "-2em",
                   fontSize: ".8rem",
                   textTransform: "capitalize",
                   color: "#8e8e8e",
@@ -171,41 +194,27 @@ export default function CardItem(props: Posts) {
                 View all comments
               </Button>
             </Grid>
-            <Grid item>
-              <Grid container spacing={1} alignItems="center">
-                <Grid item>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ color: "#161616", fontWeight: "bold" }}
-                  >
-                    {comments[0].profile}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant="subtitle2" sx={{ fontSize: ".8rem" }}>
-                    {comments[0].text}
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Grid container spacing={1} alignItems="center">
-                <Grid item>
-                  <Typography
-                    variant="subtitle2"
-                    sx={{ color: "#161616", fontWeight: "bold" }}
-                  >
-                    {comments[1].profile}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant="subtitle2" sx={{ fontSize: ".8rem" }}>
-                    {comments[1].text}
-                  </Typography>
+            {comments.map((comment, index) => (
+              <Grid item key={index}>
+                <Grid container spacing={1} alignItems="center">
+                  <Grid item>
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ color: "#161616", fontWeight: "bold" }}
+                    >
+                      {comment.profile}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle2" sx={{ fontSize: ".8rem" }}>
+                      {comment.text}
+                    </Typography>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid item>
+            ))}
+
+            <Grid item container>
               <Typography variant="caption" sx={{ fontSize: ".7em" }}>
                 3 hours ago
               </Typography>
@@ -216,8 +225,13 @@ export default function CardItem(props: Posts) {
           </Grid>
           <Grid item sx={{ width: "100%" }} xs={12}>
             <TextField
+              value={newComment}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setNewComment(e.target.value)
+              }
               fullWidth={true}
               id="input-with-icon-textfield"
+              label="input-with-icon-textfield"
               InputProps={{
                 disableUnderline: true,
                 startAdornment: (
@@ -229,6 +243,7 @@ export default function CardItem(props: Posts) {
                   <InputAdornment position="end">
                     <Button
                       variant="text"
+                      onClick={addComment}
                       disableRipple={true}
                       sx={{
                         "&.MuiButtonBase-root:hover": {

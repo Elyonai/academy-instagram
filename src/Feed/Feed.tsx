@@ -4,7 +4,7 @@ import { Grid, Paper } from "@mui/material";
 import Container from '@mui/material/Container';
 
 import Stories from "../components/stories";
-import Sugerencias from "../componets/Sugerencias"
+import Sugerencias from "../componets/Sugerencias";
 
 const Feed = () => {
   return (
@@ -19,7 +19,7 @@ const Feed = () => {
             <Posts />
           </Grid>
           <Grid item xs={4}>
-          <Sugerencias />
+            <Sugerencias />
           </Grid>
         </Grid>
       </Paper>
