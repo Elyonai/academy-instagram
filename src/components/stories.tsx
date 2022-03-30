@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { Component } from 'react';
 import Zuck from 'zuck.js';
 import '../styles/stories.scss';
 
 
 export default class Stories extends Component {
-  storiesElement = null;
+  storiesElement;
   state = {
     stories: [
       Zuck.buildTimelineItem(
@@ -172,49 +171,24 @@ export default class Stories extends Component {
       localStorage: false, // set true to save "seen" position. Element must have a id to save properly.
       reactive: true, // set true if you use frameworks like React to control the timeline (see react.sample.html)
       callbacks: {
-        onDataUpdate: function (currentState, callback) {
+        onDataUpdate:  (currentState: any, callback: () => void) => {
           this.setState(
-            (state) => {
-              state.stories = currentState;
-
-              return state;
-            },
-            () => {
+            
+            function () {
               callback();
             }
           );
-        }.bind(this),
+        },
       },
       stories: this.state.stories,
-      
     });
   }
 
   render() {
     const timelineItems = [];
 
-    this.state.stories.forEach((story, storyId) => {
+    this.state.stories.forEach((story, storyId): void => {
       const storyItems = [];
-
-      story.items.forEach((storyItem) => {
-        storyItems.push(
-          <li
-            key={storyItem.id}
-            data-id={storyItem.id}
-            data-time={storyItem.time}
-            className={storyItem.seen ? 'seen' : ''}
-          >
-            <a
-              href={storyItem.src}
-              data-type={storyItem.type}
-              data-length={storyItem.length}
-              data-link={storyItem.link}
-              data-linkText={storyItem.linkText}
-            >
-            </a>
-          </li>
-        );
-      });
 
       let arrayFunc = story.seen ? 'push' : 'unshift';
       timelineItems[arrayFunc](
@@ -249,7 +223,7 @@ export default class Stories extends Component {
     return (
       <div>
         <div
-          ref={(node) => (this.storiesElement = node)}
+          ref={(node) => (this.storiesElement = node)}  
           id='stories-react'
           className='storiesWrapper'
         >
