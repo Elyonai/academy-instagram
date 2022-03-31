@@ -24,7 +24,7 @@ export const Container = styled.div`
     `}
 `;
 
-export const Card = styled.div`
+export const Form = styled.form`
     width: 100%;    
     max-width: 450px;
     height: 450px;
@@ -32,7 +32,7 @@ export const Card = styled.div`
     border-radius: 10px;
 `;
 
-export const CardHeader = styled.div`
+export const FormHeader = styled.div`
     width: 100%;
     padding: 15px;
     text-align: center;
@@ -41,7 +41,7 @@ export const CardHeader = styled.div`
     h2 {font-size: 15px;}
 `;
 
-export const CardBody = styled.div`
+export const FormBody = styled.div`
     width: 100%;
     height: 80%;
     padding: 24px;

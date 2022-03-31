@@ -71,12 +71,12 @@ const InputSearch = function() {
         <ContainerInput activated={activatedResults.toString()}>
             <Input name="search" placeholder="Search" autoComplete="off" ref={inputRef} onFocus={() => setActivatedResults(true)} onChange={handleSearch}/>
             <SearchIcon className="icon-search"/>
-            <Results activated={activatedResults.toString()}>
+            <Results activated={activatedResults.toString()} role="list" title="list-results">
                 {loanding && <Loader />}
                 
                 {!loanding && resultsSearch && resultsSearch.length > 0 
                     ?   resultsSearch.map((result: UserResult) => (
-                        <Result key={result.id} to={`/profile/${result.id}`} data-id>
+                        <Result key={result.id} to={`/profile/${result.id}`} data-id role="listitem" title="list-item-result">
                             <Group>
                                 <ResultImage src={result.picture} alt={result.name} />
                                 <ResultBody>
@@ -93,7 +93,7 @@ const InputSearch = function() {
                     : !loanding && <h4>No results found</h4>
                 }
             </Results>
-            <button onClick={handleResetInput}>
+            <button onClick={handleResetInput} role="button" title="button-close-results">
                 <HighlightOffIcon className="icon-close" onClick={() => setActivatedResults(false)}/>
             </button>
         </ContainerInput>

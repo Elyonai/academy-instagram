@@ -1,4 +1,4 @@
-import {Container, Card, CardHeader, CardBody, ButtonClose} from './Styles';
+import {Container, Form, FormHeader, FormBody, ButtonClose} from './Styles';
 import Button from '../Button/Button';
 
 // Icons Material UI
@@ -13,20 +13,20 @@ type Props = {
 const Modal = function({activated, setActivated}: Props) {
     
     return(
-        <Container activated={activated.toString()}>
-            <ButtonClose onClick={():void => setActivated(false)}>
-                <CloseOutlinedIcon/>
+        <Container activated={activated.toString()} role="group" title="group-modal">
+            <ButtonClose onClick={():void => setActivated(false)} role="button" title="button-close-modal">
+                <CloseOutlinedIcon role="aria-hidden"/>
             </ButtonClose>
-            <Card>
-                <CardHeader>
+            <Form role="form" title="form-add-publication">
+                <FormHeader>
                     <h2>Create new publication</h2>
-                </CardHeader>
-                <CardBody>
+                </FormHeader>
+                <FormBody>
                     <CollectionsOutlinedIcon/>
                     <h2>Drag photos and videos here </h2>
-                    <Button>Select from computer</Button>
-                </CardBody>
-            </Card>
+                    <Button role="button" title="button-select-file">Select from computer</Button>
+                </FormBody>
+            </Form>
         </Container>
 
     );
