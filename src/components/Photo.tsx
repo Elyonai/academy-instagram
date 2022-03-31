@@ -1,5 +1,4 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -20,7 +19,6 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Publication from "../types/publications";
-import Publications from "./Publications";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -173,6 +171,7 @@ export function Photography() {
     <>
 
       <Button
+        
         onClick={() => setModalShow(true)}
         variant="contained"
         color="secondary"
