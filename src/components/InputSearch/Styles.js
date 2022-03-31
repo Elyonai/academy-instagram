@@ -58,6 +58,7 @@ export const Results = styled.ul`
     transform: translateY(-5px);
     opacity: 0;
     visibility: hidden;
+    z-index: 99;
 
     h4 {
         width: 100%;
@@ -158,5 +159,30 @@ export const ButtonDelete = styled.button`
     svg {
         fill: var(--font-color-gray);
         font-size: 20px;
+    }
+`;
+
+
+// Loader
+export const ContainerLoader = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backrground: #fff;
+`;
+
+export const Preloader = styled.div`
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: 3px solid rgb(189, 189, 189);
+    border-right-color: #d6249f;
+    animation: rotate 1s infinite linear;
+
+    @keyframes rotate {
+        0% {transform: rotate(0);}
+        100% {transform: rotate(360deg);}
     }
 `;

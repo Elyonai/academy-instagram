@@ -1,6 +1,6 @@
+import {useState} from 'react';
 import {Header, Nav, Logo, Actions, Action, Image, Options, Option} from './Styles';
 import {Link} from 'react-router-dom';
-import {useState} from 'react';
 import Notifications from '../Notifications/Notifications';
 import InputSearch from '../InputSearch/InputSearch';
 

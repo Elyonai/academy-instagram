@@ -42,6 +42,7 @@ body {
   font-size: 14px;
   background: var(--color-gray-brackground);
   color: var(--font-color-black);
+  background: red;
 }
 
 a {text-decoration: none;}

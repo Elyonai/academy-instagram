@@ -82,6 +82,7 @@ export const Options = styled.ul`
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
+    z-index: 99;
 
     ${props => props.activated === 'true' && css`
         transform: translateY(0);
