@@ -20,10 +20,15 @@ export const NotificationsContainer = styled.ul`
     transform: translateY(-5px);
     opacity: 0;
     visibility: hidden;
+    z-index: 9998;
+    box-sizing: border-box;
+    padding: 0;
+    tex-align: left;
 
     h3 {
         font-size: 0.8125rem;
         padding: 12px 16px;
+        text-align: left;
     }
 
     ${props => props.activated === 'true' && css`
@@ -57,9 +62,13 @@ export const NotificationsContainer = styled.ul`
 export const Notification = styled(Link)`
     width: 100%;
     height: 60px;
-    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
+    text-decoration: none;
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 14px;
+    text-align: left;
 `;
 
 export const NotificationBody = styled.div`

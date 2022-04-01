@@ -59,6 +59,9 @@ export const Results = styled.ul`
     opacity: 0;
     visibility: hidden;
     z-index: 99;
+    box-sizing: border-box;
+    padding: 0;
+    text-align: left;
 
     h4 {
         width: 100%;
@@ -112,6 +115,9 @@ export const Result = styled(Link)`
     transition: var(--transition);
     animation: show 0.3s ease;
     cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+    font-size: 13px;
     
     @keyframes show {
         0% {
@@ -140,7 +146,9 @@ export const ResultBody = styled.div`
         padding: 3px 0;
     }
 
-    p{ word-wrap: break-word;}
+    p{     
+        word-wrap: break-word;
+    }
 `;
 
 export const ResultImage = styled.img`

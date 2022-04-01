@@ -13,18 +13,18 @@ type Props = {
 const Modal = function({activated, setActivated}: Props) {
     
     return(
-        <Container activated={activated.toString()} role="group" title="group-modal">
-            <ButtonClose onClick={():void => setActivated(false)} role="button" title="button-close-modal">
-                <CloseOutlinedIcon role="aria-hidden"/>
+        <Container activated={activated.toString()} role="tree" aria-label="modal create publication">
+            <ButtonClose onClick={():void => setActivated(false)} role="button" aria-label="button close modal">
+                <CloseOutlinedIcon/>
             </ButtonClose>
-            <Form role="form" title="form-add-publication">
+            <Form role="form" aria-label="form add publication">
                 <FormHeader>
                     <h2>Create new publication</h2>
                 </FormHeader>
                 <FormBody>
                     <CollectionsOutlinedIcon/>
                     <h2>Drag photos and videos here </h2>
-                    <Button role="button" title="button-select-file">Select from computer</Button>
+                    <Button role="button" ariaLabel="button select file">Select from computer</Button>
                 </FormBody>
             </Form>
         </Container>

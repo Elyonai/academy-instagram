@@ -83,6 +83,8 @@ export const Options = styled.ul`
     visibility: hidden;
     transition: var(--transition);
     z-index: 99;
+    box-sizing: border-box;
+    padding: 0;
 
     ${props => props.activated === 'true' && css`
         transform: translateY(0);
@@ -100,6 +102,8 @@ export const Option = styled.li`
     gap: 10px;
     cursor: pointer;
     font-size: 14px;
+    
+    p {padding: 0; margin: 0;}
 
     svg {
         font-size: 16px;

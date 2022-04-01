@@ -2,6 +2,7 @@ import {ContainerInput, Input, Results, Result, ResultBody, ResultImage, Group, 
 import {useState, useRef} from 'react';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import Loader from './Loader';
+import axios from 'axios';
 
 // Icons Material UI
 import SearchIcon from '@mui/icons-material/Search';
@@ -10,7 +11,6 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 const InputSearch = function() {
 
     type InputElement = React.ChangeEventHandler<HTMLInputElement>;
-    const inputRef = useRef<HTMLInputElement>(null!);
 
     interface UserResult {
         id: number,
@@ -23,17 +23,17 @@ const InputSearch = function() {
     const [resultsSearch, setResultsSearch] = useState<UserResult[]>([]);
     const [loanding, setLoanding] = useState<boolean>(false);
 
+    const inputRef = useRef<HTMLInputElement>(null!);
+
     const getResults = async (search: string) => {
         
         try {
 
             setLoanding(true);
 
-            const request = await fetch('http://localhost:5000/users');
-
-            const response = await request.json();
+            const request = await axios.get('http://localhost:5000/users');
             
-            const results = response.filter((result: UserResult) => result.name.toLowerCase().startsWith(search) === true);
+            const results = request.data.filter((result: UserResult) => result.name.toLowerCase().startsWith(search) === true);
 
             return results;
 
@@ -53,7 +53,9 @@ const InputSearch = function() {
 
             let results = getResults(search);
             
-            results.then(response => setResultsSearch(response));
+            results.then(response => {
+                setResultsSearch(response);
+            } );
        
         } else {
             setResultsSearch([]);
@@ -71,12 +73,12 @@ const InputSearch = function() {
         <ContainerInput activated={activatedResults.toString()}>
             <Input name="search" placeholder="Search" autoComplete="off" ref={inputRef} onFocus={() => setActivatedResults(true)} onChange={handleSearch}/>
             <SearchIcon className="icon-search"/>
-            <Results activated={activatedResults.toString()} role="list" title="list-results">
+            <Results activated={activatedResults.toString()} role="list" aria-label="list results">
                 {loanding && <Loader />}
                 
                 {!loanding && resultsSearch && resultsSearch.length > 0 
                     ?   resultsSearch.map((result: UserResult) => (
-                        <Result key={result.id} to={`/profile/${result.id}`} data-id role="listitem" title="list-item-result">
+                        <Result key={result.id} to={`/profile/${result.id}`} data-id role="listitem" aria-label="listitem result">
                             <Group>
                                 <ResultImage src={result.picture} alt={result.name} />
                                 <ResultBody>
@@ -93,7 +95,7 @@ const InputSearch = function() {
                     : !loanding && <h4>No results found</h4>
                 }
             </Results>
-            <button onClick={handleResetInput} role="button" title="button-close-results">
+            <button onClick={handleResetInput} role="button" aria-label="button close results">
                 <HighlightOffIcon className="icon-close" onClick={() => setActivatedResults(false)}/>
             </button>
         </ContainerInput>

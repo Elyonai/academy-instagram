@@ -39,65 +39,65 @@ const Navbar = function() {
         <Header role="menubar">
             <Modal activated={activatedModal} setActivated={setActivatedModal}/>
             <Nav role="navigation">
-                <Logo to="/" role="link" title="link-to-home">
+                <Logo to="/" role="link" aria-label="logo">
                     <img src={LogoInstagram} alt="Instagram" role="img"/>
                 </Logo>
 
                 <InputSearch/>
                 
-                <Actions role="group" title="group-actions">
+                <Actions role="group" aria-label="menubar actions">
                     {/* Action Home */}
                     <Action role="menuitem">
-                        <Link to="/" role="link" title="link-to-home-icon">
+                        <Link to="/" role="link" aria-label="link to home">
                             <HomeOutlinedIcon/>
                         </Link>
                     </Action>
                     {/* Action Messenger */}
                     <Action role="menuitem">
-                        <Link to="/" role="link" title="link-to-chat">
+                        <Link to="/" role="link" aria-label="link to chat">
                             <WhatsappOutlinedIcon/>
                         </Link>
                     </Action>
                     {/* Action add new post */}
                     <Action role="menuitem">
-                        <button onClick={():void => setActivatedModal(true)} role="button" title="button-open-modal">
-                            <AddBoxOutlinedIcon role="aria-hidden"/>
+                        <button onClick={():void => setActivatedModal(true)} role="button" aria-label="button open modal">
+                            <AddBoxOutlinedIcon />
                         </button>
                     </Action>
                     {/* Action explore publications */}
                     <Action role="menuitem">
-                        <Link to="/" role="link" title="link-to-explore-publications">
+                        <Link to="/" role="link" aria-label="link to explore publications">
                             <ExploreOutlinedIcon/>
                         </Link>
                     </Action>
                     {/* Action notifications */}
                     <Action role="menuitem">
-                        <button onClick={handleActivateNotifications} role="button" title="button-open-notifications">
-                            <FavoriteBorderOutlinedIcon role="aria-hidden"/>
+                        <button onClick={handleActivateNotifications} role="button" aria-label="button open notifications">
+                            <FavoriteBorderOutlinedIcon />
                         </button>
                        <Notifications activated={activatedNotifications}/>
                     </Action>
                     {/* Action profile options */}
-                    <Action onClick={handleActivateOptions} role="button" title="button-open-options-user">
+                    <Action onClick={handleActivateOptions} role="button" aria-label="button open user options">
                         <Image src='https://i.imgur.com/pMdy4wq.jpg' alt="Irving Rodríguez" role="img" />
-                        <Options activated={activatedOptions.toString()} role="list" title="list-options-user">
-                            <Option role="listitem" title="listitem-profile">
+                        <Options activated={activatedOptions.toString()} role="list" aria-label="list options user">
+                            <Option role="listitem" aria-label="listitem profile">
                                 <AccountCircleOutlinedIcon/>
                                 <p>Profile</p>
                             </Option>
-                            <Option role="listitem" title="listitem-saved">
+                            <Option role="listitem"  aria-label="listitem saved">
                                 <BookmarkBorderOutlinedIcon/>
                                 <p>Saved</p>
                             </Option>
-                            <Option role="listitem" title="listitem-setting">
+                            <Option role="listitem" aria-label="listitem setting">
                                 <SettingsOutlinedIcon/>
                                 <p>Setting</p>
                             </Option>
-                            <Option role="listitem" title="listitem-change-account">
+                            <Option role="listitem" aria-label="listitem change account">
                                 <ChangeCircleOutlinedIcon/>
                                 <p>Change account</p>
                             </Option>
-                            <Option role="listitem" title="listitem-sign-out">
+                            <Option role="listitem" aria-label="listitem sign out">
                                 <p>Sign out</p>
                             </Option>
                         </Options>
