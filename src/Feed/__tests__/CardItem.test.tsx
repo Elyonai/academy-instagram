@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import CardItem from "../Posts/CardItem";
+import CardItem from "../Card/CardItem";
 import React from "react";
 
 const post = {
@@ -90,52 +90,6 @@ describe("CardItem", () => {
       );
       const likes = screen.getByText(/120,455/i);
       expect(likes).toBeInTheDocument();
-    });
-    test("should be able to type into comment input", async () => {
-      render(
-        <CardItem
-          profile={post.profile}
-          profileImg={post.profileImg}
-          location={post.location}
-          imgUrl={post.imgUrl}
-          caption={post.caption}
-          likes={post.likes}
-          comments={post.comments}
-        />
-      );
-      const inputElement = screen.getByRole("textbox", {
-        name: "input-with-icon-textfield",
-      });
-
-      fireEvent.click(inputElement);
-      fireEvent.change(inputElement, {
-        target: { value: "Nice picture" },
-      });
-      expect(inputElement).toHaveValue("Nice picture");
-    });
-    test("should have empty input when Post button is clicked", async () => {
-      render(
-        <CardItem
-          profile={post.profile}
-          profileImg={post.profileImg}
-          location={post.location}
-          imgUrl={post.imgUrl}
-          caption={post.caption}
-          likes={post.likes}
-          comments={post.comments}
-        />
-      );
-      const inputElement = screen.getByRole("textbox", {
-        name: "input-with-icon-textfield",
-      });
-
-      fireEvent.click(inputElement);
-      fireEvent.change(inputElement, {
-        target: { value: "Nice picture" },
-      });
-      const buttonElement = screen.getByRole("button", { name: /Post/i });
-      fireEvent.click(buttonElement);
-      expect(inputElement).toHaveValue("");
     });
   });
 });

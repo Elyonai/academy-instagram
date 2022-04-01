@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
@@ -28,6 +27,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Posts } from "../../data/posts";
+import CardInput from "./CardInput";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -46,19 +46,21 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 export default function CardItem(props: Posts) {
   const [expanded, setExpanded] = React.useState<boolean>(false);
-  const [newComment, setNewComment] = React.useState("");
+  // const [newComment, setNewComment] = React.useState("");
   const { profile, profileImg, imgUrl, location, caption, likes, comments } =
     props;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  /*
 
   const addComment = () => {
     console.log(newComment);
     setNewComment("");
   };
 
+*/
   return (
     <Card sx={{ maxWidth: 580, minHeight: 700 }} elevation={8}>
       <CardHeader
@@ -223,42 +225,7 @@ export default function CardItem(props: Posts) {
           <Grid item sx={{ width: "100%", my: "1em" }}>
             <Divider variant="fullWidth" />
           </Grid>
-          <Grid item sx={{ width: "100%" }} xs={12}>
-            <TextField
-              value={newComment}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setNewComment(e.target.value)
-              }
-              fullWidth={true}
-              id="input-with-icon-textfield"
-              label="input-with-icon-textfield"
-              InputProps={{
-                disableUnderline: true,
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SentimentSatisfiedAlt />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <Button
-                      variant="text"
-                      onClick={addComment}
-                      disableRipple={true}
-                      sx={{
-                        "&.MuiButtonBase-root:hover": {
-                          bgcolor: "transparent",
-                        },
-                      }}
-                    >
-                      Post
-                    </Button>
-                  </InputAdornment>
-                ),
-              }}
-              variant="standard"
-            />
-          </Grid>
+          <CardInput />
         </Grid>
       </CardActions>
     </Card>
